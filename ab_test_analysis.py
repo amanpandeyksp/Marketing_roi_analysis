@@ -19,35 +19,23 @@ x_variant = int(agg.loc[agg["group"] == "variant", "conversions"].iloc[0])
 
 p_control = x_control / n_control
 p_variant = x_variant / n_variant
-
-# ---------------------------------------------------------------
 # Two-proportion z-test (pooled, two-sided)
-# ---------------------------------------------------------------
 p_pool = (x_control + x_variant) / (n_control + n_variant)
 se_pool = np.sqrt(p_pool * (1 - p_pool) * (1 / n_control + 1 / n_variant))
 z_stat = (p_variant - p_control) / se_pool
 p_value = 2 * (1 - stats.norm.cdf(abs(z_stat)))
-
-# ---------------------------------------------------------------
 # Confidence interval on the difference (unpooled SE, standard for CI)
-# ---------------------------------------------------------------
 se_diff = np.sqrt(p_control * (1 - p_control) / n_control +
                    p_variant * (1 - p_variant) / n_variant)
 diff = p_variant - p_control
 ci_low = diff - 1.96 * se_diff
 ci_high = diff + 1.96 * se_diff
-
-# ---------------------------------------------------------------
 # Uplift
-# ---------------------------------------------------------------
 absolute_uplift = diff
 relative_uplift = diff / p_control
-
-# ---------------------------------------------------------------
 # Minimum sample size check (post-hoc power context):
 # what sample size would have been required to detect this effect
 # at 80% power, alpha=0.05, two-sided — using observed rates
-# ---------------------------------------------------------------
 alpha = 0.05
 power = 0.80
 z_alpha = stats.norm.ppf(1 - alpha / 2)
@@ -56,10 +44,7 @@ p_bar = (p_control + p_variant) / 2
 required_n_per_group = ((z_alpha * np.sqrt(2 * p_bar * (1 - p_bar)) +
                           z_beta * np.sqrt(p_control * (1 - p_control) + p_variant * (1 - p_variant))) ** 2
                          / (diff ** 2))
-
-# ---------------------------------------------------------------
 # Business impact projection
-# ---------------------------------------------------------------
 # Use blended AOV from the broader campaign dataset for a realistic revenue read-through
 daily = pd.read_csv("daily_performance.csv")
 blended_aov = daily["revenue"].sum() / daily["purchases"].sum()
@@ -68,10 +53,7 @@ MONTHLY_LANDING_PAGE_VISITORS = 50000  # assumed traffic volume if rolled out si
 incremental_conversions_per_month = MONTHLY_LANDING_PAGE_VISITORS * absolute_uplift
 incremental_monthly_revenue = incremental_conversions_per_month * blended_aov
 incremental_annual_revenue = incremental_monthly_revenue * 12
-
-# ---------------------------------------------------------------
 # REPORT
-# ---------------------------------------------------------------
 print("=" * 70)
 print("A/B TEST: LANDING PAGE CONTROL vs VARIANT")
 print("=" * 70)
