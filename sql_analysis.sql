@@ -1,13 +1,10 @@
--- =====================================================================
+
 -- MARKETING CAMPAIGN ROI & CONVERSION ANALYSIS — SQL ANALYSIS SUITE
 -- Engine: SQLite (marketing.db)
 -- Tables: campaigns, daily_performance, ab_test
--- =====================================================================
-
--- ---------------------------------------------------------------------
 -- 1. CORE FUNNEL METRICS PER CAMPAIGN
 --    Demonstrates: JOIN, GROUP BY, CASE WHEN (safe division), aggregate funcs
--- ---------------------------------------------------------------------
+
 SELECT
     c.campaign_id,
     c.campaign_name,
@@ -45,12 +42,8 @@ FROM campaigns c
 JOIN daily_performance d ON c.campaign_id = d.campaign_id
 GROUP BY c.campaign_id, c.campaign_name, c.channel, c.geography, c.segment
 ORDER BY roi_pct DESC;
-
-
--- ---------------------------------------------------------------------
 -- 2. CHANNEL-LEVEL COMPARISON WITH RANKING
 --    Demonstrates: CTE, window function RANK(), subquery
--- ---------------------------------------------------------------------
 WITH channel_agg AS (
     SELECT
         c.channel,
@@ -82,13 +75,9 @@ SELECT
     RANK() OVER (ORDER BY cac ASC)          AS cac_efficiency_rank
 FROM channel_metrics
 ORDER BY roi_pct DESC;
-
-
--- ---------------------------------------------------------------------
 -- 3. MONTHLY TREND WITH MONTH-OVER-MONTH (MoM) GROWTH & RUNNING TOTAL
 --    Demonstrates: date functions (strftime), window functions (LAG, SUM OVER),
 --                  running total, MoM % calculation
--- ---------------------------------------------------------------------
 WITH monthly AS (
     SELECT
         strftime('%Y-%m', date)   AS month,
@@ -113,12 +102,8 @@ SELECT
           / NULLIF(LAG(revenue) OVER (ORDER BY month), 0), 1)       AS mom_growth_pct
 FROM monthly
 ORDER BY month;
-
-
--- ---------------------------------------------------------------------
 -- 4. PERFORMANCE BY GEOGRAPHY x DEVICE x AGE GROUP (multi-dimensional slice)
 --    Demonstrates: multiple JOIN keys via GROUP BY, CASE WHEN bucketing
--- ---------------------------------------------------------------------
 SELECT
     c.geography,
     c.device_focus,
@@ -136,12 +121,8 @@ FROM campaigns c
 JOIN daily_performance d ON c.campaign_id = d.campaign_id
 GROUP BY c.geography, c.device_focus, c.age_group
 ORDER BY roas DESC;
-
-
--- ---------------------------------------------------------------------
 -- 5. TOP-3 CAMPAIGNS PER CHANNEL BY ROI (window function partitioned ranking)
 --    Demonstrates: PARTITION BY, ROW_NUMBER(), subquery filter
--- ---------------------------------------------------------------------
 WITH ranked AS (
     SELECT
         c.channel,
@@ -160,12 +141,8 @@ SELECT channel, campaign_id, campaign_name, revenue, cost, roi_pct
 FROM ranked
 WHERE rn <= 3
 ORDER BY channel, roi_pct DESC;
-
-
--- ---------------------------------------------------------------------
 -- 6. CAMPAIGNS OUTPERFORMING THE OVERALL AVERAGE ROAS (correlated subquery)
 --    Demonstrates: scalar subquery in WHERE clause
--- ---------------------------------------------------------------------
 SELECT
     c.campaign_id,
     c.campaign_name,
@@ -178,12 +155,8 @@ HAVING roas > (
     SELECT SUM(revenue) * 1.0 / SUM(cost) FROM daily_performance
 )
 ORDER BY roas DESC;
-
-
--- ---------------------------------------------------------------------
 -- 7. A/B TEST RAW AGGREGATION (feeds Python statistical test)
---    Demonstrates: GROUP BY with SUM, simple aggregation for stats input
--- ---------------------------------------------------------------------
+--    Demonstrates: GROUP BY with SUM, simple aggregation for stats INPUT
 SELECT
     "group",
     SUM(visitors)                                      AS total_visitors,
