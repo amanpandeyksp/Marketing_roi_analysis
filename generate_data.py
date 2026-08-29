@@ -11,10 +11,7 @@ import pandas as pd
 from datetime import date, timedelta
 
 rng = np.random.default_rng(42)
-
-# ---------------------------------------------------------------
 # 1. CAMPAIGN METADATA
-# ---------------------------------------------------------------
 channels = ["Facebook", "Google", "Email", "Instagram", "TikTok", "Affiliate"]
 geographies = ["North America", "Europe", "APAC", "LATAM"]
 segments = ["New Customers", "Returning Customers", "High-Value", "Price-Sensitive"]
@@ -53,10 +50,7 @@ for i in range(1, N_CAMPAIGNS + 1):
     })
 
 campaigns_df = pd.DataFrame(campaigns)
-
-# ---------------------------------------------------------------
 # 2. DAILY PERFORMANCE (funnel: impressions -> clicks -> leads -> purchases -> revenue)
-# ---------------------------------------------------------------
 rows = []
 for _, camp in campaigns_df.iterrows():
     prof = channel_profile[camp["channel"]]
@@ -93,10 +87,7 @@ for _, camp in campaigns_df.iterrows():
         })
 
 daily_df = pd.DataFrame(rows)
-
-# ---------------------------------------------------------------
-# 3. A/B TEST: Landing page control vs variant (visitor-level, aggregated to daily for realism)
-# ---------------------------------------------------------------
+# 3. A/B TEST: Landing page control vs variant (visitor-level, aggregated to daily for realism)-
 ab_start = pd.Timestamp("2025-09-01")
 ab_days = pd.date_range(ab_start, periods=21, freq="D")
 
@@ -113,10 +104,6 @@ for day in ab_days:
     ab_rows.append({"date": day, "group": "variant", "visitors": visitors_variant, "conversions": conversions_variant})
 
 ab_df = pd.DataFrame(ab_rows)
-
-# ---------------------------------------------------------------
-# SAVE
-# ---------------------------------------------------------------
 campaigns_df.to_csv("campaigns.csv", index=False)
 daily_df.to_csv("daily_performance.csv", index=False)
 ab_df.to_csv("ab_test.csv", index=False)
