@@ -1,0 +1,41 @@
+campaign_id,campaign_name,channel,geography,segment,device_focus,age_group,start_date,end_date,daily_budget
+C001,Instagram_Returning_Jul2025,Instagram,APAC,Price-Sensitive,Mobile,35-44,2025-07-15,2025-08-28,704.13
+C002,Instagram_New_Oct2025,Instagram,Europe,High-Value,Tablet,25-34,2025-10-28,2025-12-15,607.97
+C003,TikTok_Returning_Jun2025,TikTok,Europe,New Customers,Mobile,55+,2025-06-15,2025-07-29,597.96
+C004,Instagram_Returning_Sep2025,Instagram,LATAM,Returning Customers,Desktop,55+,2025-09-13,2025-11-10,239.6
+C005,Google_High-Value_May2025,Google,APAC,New Customers,Desktop,25-34,2025-05-31,2025-06-22,347.18
+C006,Google_Returning_Oct2025,Google,North America,Returning Customers,Mobile,18-24,2025-10-28,2025-11-21,266.07
+C007,Instagram_New_Oct2025,Instagram,APAC,Price-Sensitive,Mobile,45-54,2025-10-13,2025-11-26,739.91
+C008,Google_Returning_Sep2025,Google,APAC,High-Value,Mobile,18-24,2025-09-13,2025-11-21,86.04
+C009,Instagram_Returning_Aug2025,Instagram,APAC,High-Value,Mobile,35-44,2025-08-29,2025-10-24,194.63
+C010,Facebook_High-Value_Jun2025,Facebook,Europe,Price-Sensitive,Desktop,35-44,2025-06-15,2025-07-29,600.47
+C011,Email_Price-Sensitive_Jan2025,Email,North America,Returning Customers,Mobile,55+,2025-01-16,2025-03-07,414.99
+C012,TikTok_New_Mar2025,TikTok,North America,Price-Sensitive,Mobile,25-34,2025-03-02,2025-03-23,622.77
+C013,Email_Price-Sensitive_May2025,Email,Europe,High-Value,Desktop,25-34,2025-05-31,2025-08-02,98.62
+C014,Facebook_High-Value_Feb2025,Facebook,Europe,High-Value,Mobile,18-24,2025-02-15,2025-04-18,204.9
+C015,Instagram_New_May2025,Instagram,North America,Returning Customers,Desktop,45-54,2025-05-31,2025-07-14,151.87
+C016,Facebook_Price-Sensitive_Apr2025,Facebook,LATAM,Returning Customers,Mobile,45-54,2025-04-16,2025-05-24,874.72
+C017,Instagram_Price-Sensitive_Mar2025,Instagram,North America,Returning Customers,Mobile,35-44,2025-03-17,2025-05-15,453.74
+C018,Facebook_Returning_Sep2025,Facebook,Europe,High-Value,Desktop,18-24,2025-09-28,2025-11-26,701.99
+C019,Instagram_Returning_Jul2025,Instagram,Europe,High-Value,Desktop,45-54,2025-07-15,2025-08-27,420.96
+C020,Facebook_Returning_Jan2025,Facebook,North America,High-Value,Mobile,18-24,2025-01-16,2025-02-14,561.87
+C021,Facebook_Price-Sensitive_Apr2025,Facebook,North America,High-Value,Desktop,25-34,2025-04-01,2025-06-10,866.02
+C022,Email_Price-Sensitive_Jan2025,Email,North America,Returning Customers,Mobile,35-44,2025-01-01,2025-02-15,849.02
+C023,Email_Price-Sensitive_Jun2025,Email,North America,Returning Customers,Mobile,55+,2025-06-15,2025-07-31,97.72
+C024,TikTok_Price-Sensitive_May2025,TikTok,North America,Returning Customers,Mobile,35-44,2025-05-16,2025-06-05,631.24
+C025,Google_High-Value_Mar2025,Google,APAC,High-Value,Mobile,45-54,2025-03-17,2025-05-12,268.78
+C026,Facebook_High-Value_Oct2025,Facebook,North America,Returning Customers,Desktop,55+,2025-10-13,2025-11-09,340.05
+C027,Affiliate_High-Value_Jul2025,Affiliate,North America,High-Value,Tablet,18-24,2025-07-15,2025-08-20,116.83
+C028,Google_Price-Sensitive_Feb2025,Google,APAC,New Customers,Desktop,45-54,2025-02-15,2025-04-29,812.63
+C029,Email_New_May2025,Email,Europe,Price-Sensitive,Mobile,55+,2025-05-16,2025-06-22,692.37
+C030,Google_Price-Sensitive_Jan2025,Google,North America,New Customers,Desktop,18-24,2025-01-16,2025-02-05,205.69
+C031,Facebook_High-Value_Apr2025,Facebook,North America,Price-Sensitive,Mobile,55+,2025-04-16,2025-06-07,876.9
+C032,Email_New_Aug2025,Email,North America,New Customers,Mobile,25-34,2025-08-29,2025-10-11,635.68
+C033,Facebook_Price-Sensitive_Apr2025,Facebook,Europe,High-Value,Mobile,55+,2025-04-01,2025-05-18,666.63
+C034,Instagram_New_Aug2025,Instagram,North America,High-Value,Mobile,55+,2025-08-29,2025-11-02,326.78
+C035,Email_Returning_May2025,Email,North America,Price-Sensitive,Tablet,35-44,2025-05-31,2025-07-26,535.26
+C036,Email_New_Jan2025,Email,North America,High-Value,Tablet,35-44,2025-01-01,2025-03-08,568.75
+C037,Affiliate_Returning_Aug2025,Affiliate,APAC,Returning Customers,Mobile,45-54,2025-08-14,2025-10-17,760.13
+C038,Instagram_New_Jan2025,Instagram,Europe,Price-Sensitive,Desktop,45-54,2025-01-31,2025-03-17,574.55
+C039,Google_Price-Sensitive_Jan2025,Google,Europe,Returning Customers,Desktop,25-34,2025-01-31,2025-03-12,283.23
+C040,Facebook_High-Value_May2025,Facebook,APAC,Price-Sensitive,Mobile,18-24,2025-05-16,2025-07-29,567.44
